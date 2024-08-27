@@ -2,8 +2,10 @@
   home.username = "pcorbineau";
   home.homeDirectory = "/home/pcorbineau";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   imports = [
-    ./hypr
+    ./sway
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +17,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.git.enable = true;
+  programs.neovim.enable = true;
 
   programs.firefox = {
     enable = true;
@@ -40,9 +45,4 @@
       return config
     '';
   };
-
-  fonts.fontconfig.enable = true;
-  # home.packages = [
-  #   (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  # ];
 }

@@ -1,6 +1,8 @@
 {inputs, config, pkgs, ...}: {
 
     imports = [ ./hardware-configuration.nix ];
+
+    # Bootloader
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
@@ -29,34 +31,17 @@
         LC_TIME = "fr_FR.UTF-8";
     };
 
-
     users.users.pcorbineau = {
         isNormalUser = true;
         description = "Paul Corbineau";
-        home = "/home/pcorbineau";
         extraGroups = [ "wheel" "networkmanager" ];
     };
 
-    services.xserver = {
-        enable = true;
-        xkb.layout = "us";
-    };
-    services.displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
-    };
-
-    programs.hyprland.enable = true;
-    services.desktopManager.plasma6.enable = true;
-
     virtualisation.vmVariant = {
-          environment.sessionVariables = {
-            # WLR_RENDERER_ALLOW_SOFTWARE = "1";
-        };
         users.users.pcorbineau.password = "test";
     };
 
-      # Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
@@ -68,5 +53,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
+  security.polkit.enable = true;
+
+  programs.sway.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 }
