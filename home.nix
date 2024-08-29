@@ -11,12 +11,15 @@
   home.packages = with pkgs; [
     fastfetch
     vim
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   home.stateVersion = "24.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   programs.git.enable = true;
   programs.neovim.enable = true;
@@ -45,4 +48,13 @@
       return config
     '';
   };
+
+  programs.zsh = {
+    enable = true;
+  };
+  programs.starship = {
+    enable = true;
+  };
+
+  programs.lazygit.enable = true;
 }

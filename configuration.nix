@@ -35,6 +35,7 @@
         isNormalUser = true;
         description = "Paul Corbineau";
         extraGroups = [ "wheel" "networkmanager" ];
+	shell = pkgs.zsh;
     };
 
     virtualisation.vmVariant = {
@@ -61,4 +62,6 @@
     enable = true;
     wayland.enable = true;
   };
+
+  programs.zsh.enable = true;
 }
