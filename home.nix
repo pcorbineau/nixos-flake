@@ -52,8 +52,9 @@
   programs.zsh = {
     enable = true;
   };
-  programs.starship = {
+  programs.oh-my-posh = {
     enable = true;
+    useTheme = "amro";
   };
 
   programs.lazygit.enable = true;
