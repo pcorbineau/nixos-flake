@@ -45,6 +45,8 @@
     extraConfig = ''
       local config = {}
       config.font = wezterm.font 'JetBrains Mono'
+      config.window_decorations = "NONE"
+      config.enable_tab_bar = false
       return config
     '';
   };
