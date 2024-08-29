@@ -57,7 +57,10 @@
 
   security.polkit.enable = true;
 
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+  };
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;

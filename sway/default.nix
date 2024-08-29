@@ -2,6 +2,8 @@
 {
    wayland.windowManager.sway = {
     enable = true;
+    checkConfig = false;
+    package = pkgs.swayfx;
     config = {
       modifier = "Mod4";
       # Use wezterm as default terminal
@@ -23,7 +25,14 @@
 	  command = "${pkgs.waybar}/bin/waybar";
 	}
       ];
+      window.titlebar = false;
+      gaps.inner = 10;
     };
+    extraConfig = ''
+    corner_radius 10
+
+    blur enable
+    '';
   };
 
   programs.wofi.enable = true;
