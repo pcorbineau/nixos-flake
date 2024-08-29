@@ -15,6 +15,7 @@
       output = {
         eDP-1 = {
 	  scale = "1.25";
+	  bg = "${../wallpaper/glacier.jpg} fill";
 	};
       };
       bars = [
