@@ -6,8 +6,15 @@
   home.file = {
     ".config/waybar/config".source = config.lib.file.mkOutOfStoreSymlink /home/pcorbineau/Documents/nixos-flake/waybar/config;
     };
+  home.file = {
+    ".config/wofi/style.css".source = config.lib.file.mkOutOfStoreSymlink /home/pcorbineau/Documents/nixos-flake/wofi/style.css;
+    };
+  home.file = {
+    ".config/wofi/config".source = config.lib.file.mkOutOfStoreSymlink /home/pcorbineau/Documents/nixos-flake/wofi/config;
+    };
 
-  programs.wofi.enable = true;
+  #programs.wofi.enable = true;
+
   #programs.waybar = {
   #  enable = true;
   #  style = ''

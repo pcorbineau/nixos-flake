@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     fastfetch
     vim
+    wofi
   ];
 
   home.stateVersion = "24.05";
