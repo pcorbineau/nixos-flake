@@ -11,7 +11,6 @@
   home.packages = with pkgs; [
     fastfetch
     vim
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   home.stateVersion = "24.05";
@@ -42,6 +41,7 @@
   };
   programs.wezterm = {
     enable = true;
+    enableBashIntegration = false;
     extraConfig = ''
       local config = {}
       config.font = wezterm.font 'JetBrains Mono'
@@ -53,10 +53,14 @@
 
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
   };
   programs.oh-my-posh = {
     enable = true;
     useTheme = "amro";
+    enableBashIntegration = false;
   };
 
   programs.lazygit.enable = true;

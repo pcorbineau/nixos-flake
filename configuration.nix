@@ -55,6 +55,10 @@
     pulse.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
+
   security.polkit.enable = true;
 
   programs.sway = {
@@ -65,6 +69,7 @@
     enable = true;
     wayland.enable = true;
   };
+  programs.waybar.enable = true;
 
   programs.zsh.enable = true;
 }
